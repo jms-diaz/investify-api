@@ -9,7 +9,7 @@ router.get("/", async (req, res) => {
     res.json(courses);
   } catch (err) {
     console.error(err);
-    res.status(500).json({ message: "Server error" });
+    res.status(500).json(err.message);
   }
 });
 
@@ -23,7 +23,7 @@ router.get("/:courseId", async (req, res) => {
     res.json(course);
   } catch (err) {
     console.error(err);
-    res.status(500).json({ message: "Server error" });
+    res.status(500).json(err.message);
   }
 });
 
@@ -41,7 +41,7 @@ router.post("/", async (req, res) => {
     res.status(201).json(newCourse);
   } catch (err) {
     console.error(err);
-    res.status(500).json({ message: "Server error" });
+    res.status(500).json(err.message);
   }
 });
 
@@ -61,7 +61,7 @@ router.put("/:courseId", async (req, res) => {
     res.json(updatedCourse);
   } catch (err) {
     console.error(err);
-    res.status(500).json({ message: "Server error" });
+    res.status(500).json(err.message);
   }
 });
 
@@ -75,7 +75,7 @@ router.delete("/:courseId", async (req, res) => {
     res.json({ message: "Course deleted" });
   } catch (err) {
     console.error(err);
-    res.status(500).json({ message: "Server error" });
+    res.status(500).json(err.message);
   }
 });
 

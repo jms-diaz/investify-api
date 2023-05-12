@@ -17,7 +17,7 @@ router.post("/", async (req, res) => {
     const savedInstructor = await newInstructor.save();
     res.status(200).json(savedInstructor);
   } catch (err) {
-    res.status(500).json(err);
+    res.status(500).json(err.message);
   }
 });
 
@@ -38,13 +38,13 @@ router.put("/:id", async (req, res) => {
         );
         res.status(200).json(updatedInstructor);
       } catch (err) {
-        res.status(500).json(err);
+        res.status(500).json(err.message);
       }
     } else {
       res.status(401).json("Instructor cannot be updated!");
     }
   } catch (err) {
-    res.status(500).json(err);
+    res.status(500).json(err.message);
   }
 });
 
@@ -57,13 +57,13 @@ router.delete("/:id", async (req, res) => {
         await instructor.delete();
         res.status(200).json("Instructor has been deleted");
       } catch (err) {
-        res.status(500).json(err);
+        res.status(500).json(err.message);
       }
     } else {
       res.status(401).json("Instructor cannot be deleted!");
     }
   } catch (err) {
-    res.status(500).json(err);
+    res.status(500).json(err.message);
   }
 });
 

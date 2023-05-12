@@ -11,7 +11,7 @@ router.get("/:courseId/contents", async (req, res) => {
     res.json(course.contents);
   } catch (err) {
     console.error(err.message);
-    res.status(500).send("Server Error");
+    res.status(500).json(err.message);
   }
 });
 
@@ -29,7 +29,7 @@ router.get("/:courseId/contents/:contentId", async (req, res) => {
     res.json(content);
   } catch (err) {
     console.error(err.message);
-    res.status(500).send("Server Error");
+    res.status(500).json(err.message);
   }
 });
 
@@ -62,7 +62,7 @@ router.post("/:courseId/contents", async (req, res) => {
     res.status(201).json(updatedCourse);
   } catch (err) {
     console.error(err.message);
-    res.status(500).json({ error: "Server error" });
+    res.status(500).json(err.message);
   }
 });
 
@@ -88,7 +88,7 @@ router.put("/:courseId/contents/:contentId", async (req, res) => {
     res.json(course.contents);
   } catch (err) {
     console.error(err.message);
-    res.status(500).send("Server Error");
+    res.status(500).json(err.message);
   }
 });
 
@@ -106,7 +106,7 @@ router.delete("/:courseId/contents/:contentId", async (req, res) => {
     res.json(course.contents);
   } catch (err) {
     console.error(err.message);
-    res.status(500).send("Server Error");
+    res.status(500).json(err.message);
   }
 });
 

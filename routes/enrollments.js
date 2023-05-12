@@ -7,7 +7,7 @@ router.get("/", async (req, res) => {
     const enrollments = await Enrollment.find();
     res.json(enrollments);
   } catch (err) {
-    res.status(500).json({ message: err.message });
+    res.status(500).json(err.message);
   }
 });
 
